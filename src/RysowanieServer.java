@@ -1,12 +1,83 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Zdzislaw on 17.04.2017.
  */
+
+interface Rysowanie extends Remote
+{
+    public byte[] rysujrmi(Point p) throws RemoteException;
+    public byte[] setrmi() throws RemoteException;
+}
+class RysowanieI extends UnicastRemoteObject implements Rysowanie
+{
+    private static BufferedImage common;
+    private Map<RenderingHints.Key, Object> hm;
+    private RenderingHints rh;
+
+
+    public RysowanieI() throws RemoteException
+    {
+        super();
+        hm = new HashMap<RenderingHints.Key,Object>();
+        hm.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        hm.put(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
+        hm.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        rh = new RenderingHints(hm);
+        common = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+
+    }
+    public byte[] setrmi()
+    {
+        Graphics2D g = common.createGraphics();
+        g.setRenderingHints(rh);
+        g.setColor(Color.BLACK);
+        g.dispose();
+        ByteArrayOutputStream bit = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(common,"jpg",bit);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("SETTED");
+        return bit.toByteArray();
+    }
+    public byte[] rysujrmi(Point p)
+    {
+        int i=0;
+        Graphics2D g = common.createGraphics();
+        g.setRenderingHints(rh);
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
+        g.drawLine(p.x,p.y,p.x+i,p.y+i);
+        //g.repaint()
+        g.dispose();
+        ByteArrayOutputStream bit = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(common,"jpg",bit);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("DRAWED");
+        return bit.toByteArray();
+    }
+}
+
 public class RysowanieServer extends JFrame
 {
     private JPanel kontener;
@@ -80,11 +151,14 @@ public class RysowanieServer extends JFrame
         }
     }
 
+
+
     private class Server extends Thread
     {
         public void ubijSerwer()
         {
             Registry rejestr;
+
 
             try
             {
@@ -100,7 +174,14 @@ public class RysowanieServer extends JFrame
 
             public void run()
             {
-
+                try
+                {
+                    System.out.println("Uruchamiam...");
+                    Registry registry = LocateRegistry.createRegistry(1099);
+                    RysowanieI remote = new RysowanieI();
+                    registry.bind("RDraw",remote);
+                    System.out.println("Uruchomiony");
+                }catch (Exception e){e.printStackTrace();}
             }
 
     }

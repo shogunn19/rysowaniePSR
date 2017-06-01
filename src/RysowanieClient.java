@@ -1,8 +1,14 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.*;
 import java.awt.*;
 
@@ -33,6 +39,8 @@ public class RysowanieClient extends JFrame
 
     private Point zaznaczeniePunktPoczatkowy;
     private Rectangle zaznaczenie;
+    private Registry registry;
+    private Rysowanie rys;
 
 
     public RysowanieClient()
@@ -110,8 +118,12 @@ public class RysowanieClient extends JFrame
         add(kontenerPrzyciskiDol, BorderLayout.SOUTH);
 
 
-
+        try{
+            registry = LocateRegistry.getRegistry(1099);
+            rys = (Rysowanie) registry.lookup("RDraw");
+        }catch (Exception e){e.printStackTrace();}
         this.setMinimumSize(this.getSize());
+
 
         setVisible(true);
     }
@@ -121,15 +133,15 @@ public class RysowanieClient extends JFrame
         BIwyjsciowyObszarRob = bi;
         int wysokosc = bi.getHeight();
         int szerokosc = bi.getWidth();
-        BIzmienianyObszarRob = new BufferedImage(szerokosc,wysokosc, BufferedImage.TYPE_INT_ARGB);
-
-        Graphics2D g = BIzmienianyObszarRob.createGraphics(); //tworzy Graphics2D ktory moze byc uzywany do rysowania w BI
-        g.setRenderingHints(rh);
-
-        g.drawImage(bi, 0, 0, obszar);
-        g.dispose(); //rozieszcza grafike i zwalnia zasoby systemowe ktore ja uzywaja
-
-        zaznaczenie = new Rectangle(0, 0, szerokosc, wysokosc);
+        BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+        BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+        try{
+            registry = LocateRegistry.getRegistry(1099);
+            rys = (Rysowanie) registry.lookup("RDraw");
+            ByteArrayInputStream bout = new ByteArrayInputStream(rys.setrmi());
+            rmiPic = ImageIO.read(bout);
+            BIzmienianyObszarRob = rmiPic;
+        }catch (Exception e){e.printStackTrace();}
 
         if(obszarLabel !=null)
         {
@@ -208,15 +220,20 @@ public class RysowanieClient extends JFrame
 
     public void rysowanie(Point wspolrzedna)
     {
-        int i=0;
-        Graphics2D g = this.BIzmienianyObszarRob.createGraphics();
-        g.setRenderingHints(rh);
-        g.setColor(Color.WHITE);
-        g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
-        g.drawLine(wspolrzedna.x,wspolrzedna.y,wspolrzedna.x+i,wspolrzedna.y+i);
-        //g.repaint()
-        g.dispose();
-        obszarLabel.repaint();
+        try{
+            registry = LocateRegistry.getRegistry(1099);
+            rys = (Rysowanie)registry.lookup("RDraw");
+            ByteArrayOutputStream pre = new ByteArrayOutputStream();
+            ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
+            byte[] post;
+            post = rys.rysujrmi(wspolrzedna);
+            System.out.println(post.toString());
+            ByteArrayInputStream postb = new ByteArrayInputStream(post);
+            this.BIzmienianyObszarRob = ImageIO.read(postb);
+            obszarLabel.setIcon(new ImageIcon(this.BIzmienianyObszarRob));
+            obszarLabel.invalidate();
+
+        }catch (Exception e){e.printStackTrace();}
     }
 
     public void pisanie(Point wspolrzedna)
@@ -229,7 +246,6 @@ public class RysowanieClient extends JFrame
             g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
             g.drawString(tresc,wspolrzedna.x ,wspolrzedna.y);
             g.dispose();
-            obszarLabel.repaint();
         }
     }
 
