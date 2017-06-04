@@ -20,7 +20,7 @@ import java.util.Map;
 
 interface Rysowanie extends Remote
 {
-    public byte[] rysujrmi(Point p) throws RemoteException;
+    public byte[] rysujrmi(Point p, Color c) throws RemoteException;
     public byte[] setrmi() throws RemoteException;
 }
 class RysowanieI extends UnicastRemoteObject implements Rysowanie
@@ -39,14 +39,14 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         hm.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         rh = new RenderingHints(hm);
         common = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+        Graphics2D constr = common.createGraphics();
+        constr.setColor(Color.WHITE);
+        constr.fillRect(0,0,common.getWidth(),common.getHeight());
+        constr.setRenderingHints(rh);
 
     }
     public byte[] setrmi()
     {
-        Graphics2D g = common.createGraphics();
-        g.setRenderingHints(rh);
-        g.setColor(Color.BLACK);
-        g.dispose();
         ByteArrayOutputStream bit = new ByteArrayOutputStream();
         try {
             ImageIO.write(common,"jpg",bit);
@@ -56,12 +56,12 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         System.out.println("SETTED");
         return bit.toByteArray();
     }
-    public byte[] rysujrmi(Point p)
+    public byte[] rysujrmi(Point p, Color c)
     {
         int i=0;
         Graphics2D g = common.createGraphics();
         g.setRenderingHints(rh);
-        g.setColor(Color.BLACK);
+        g.setColor(c);
         g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
         g.drawLine(p.x,p.y,p.x+i,p.y+i);
         //g.repaint()

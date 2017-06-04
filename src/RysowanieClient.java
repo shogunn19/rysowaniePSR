@@ -226,7 +226,7 @@ public class RysowanieClient extends JFrame
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
             byte[] post;
-            post = rys.rysujrmi(wspolrzedna);
+            post = rys.rysujrmi(wspolrzedna,Color.BLACK);
             System.out.println(post.toString());
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);
