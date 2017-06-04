@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="333f6908-2f0c-4a1b-8786-e611f86e26d5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/Rysowanie.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$KolorML.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$ObszarML.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$ObszarMML.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$RozmiarRysCL.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieI.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$Server.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$Zdarzenia.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RysowanieClient.java" afterPath="$PROJECT_DIR$/src/RysowanieClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RysowanieServer.java" afterPath="$PROJECT_DIR$/src/RysowanieServer.java" />
@@ -34,24 +20,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RysowanieServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RysowanieServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="43" column="64" lean-forward="false" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
+            <state relative-caret-position="483">
+              <caret line="166" column="16" lean-forward="false" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RysowanieClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RysowanieClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
+            <state relative-caret-position="93">
+              <caret line="224" column="61" lean-forward="true" selection-start-line="224" selection-start-column="61" selection-end-line="224" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thread.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="744" column="0" lean-forward="false" selection-start-line="744" selection-start-column="0" selection-end-line="744" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,8 +86,6 @@
       <find>bi</find>
       <find>server</find>
       <find>comm</find>
-      <find>rys</find>
-      <find>rysowanie</find>
       <find>run()</find>
       <find>setIco</find>
       <find>ImageIco</find>
@@ -99,6 +93,12 @@
       <find>ustaw</find>
       <find>ustawOb</find>
       <find>setrmi</find>
+      <find>kolo</find>
+      <find>rysu</find>
+      <find>rys</find>
+      <find>rysowanie</find>
+      <find>registry</find>
+      <find>ubij</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,8 +114,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/RysowanieImpl.java" />
         <option value="$PROJECT_DIR$/src/Rysowanie.java" />
-        <option value="$PROJECT_DIR$/src/RysowanieClient.java" />
         <option value="$PROJECT_DIR$/src/RysowanieServer.java" />
+        <option value="$PROJECT_DIR$/src/RysowanieClient.java" />
       </list>
     </option>
   </component>
@@ -126,8 +126,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="192" />
-    <option name="y" value="356" />
+    <option name="x" value="174" />
+    <option name="y" value="179" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -581,7 +581,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1492441355774</updated>
-      <workItem from="1496533270154" duration="1452000" />
+      <workItem from="1496533270154" duration="4377000" />
     </task>
     <task id="LOCAL-00001" summary="Zbudowanie działającej infrastrukturt RMI">
       <created>1496315572523</created>
@@ -590,14 +590,21 @@
       <option name="project" value="LOCAL" />
       <updated>1496315572523</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Dodanie białego tła">
+      <created>1496534773471</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1496534773471</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1452000" />
+    <option name="totallyTimeSpent" value="4377000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="192" y="356" width="1382" height="744" extended-state="0" />
+    <frame x="174" y="179" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -639,7 +646,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Zbudowanie działającej infrastrukturt RMI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zbudowanie działającej infrastrukturt RMI" />
+    <MESSAGE value="Dodanie białego tła" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie białego tła" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -846,21 +854,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="128">
+          <caret line="744" column="0" lean-forward="false" selection-start-line="744" selection-start-column="0" selection-end-line="744" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="43" column="64" lean-forward="false" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
+        <state relative-caret-position="483">
+          <caret line="166" column="16" lean-forward="false" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="224" column="61" lean-forward="true" selection-start-line="224" selection-start-column="61" selection-end-line="224" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

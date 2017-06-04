@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -64,6 +65,7 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         g.setColor(c);
         g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
         g.drawLine(p.x,p.y,p.x+i,p.y+i);
+
         //g.repaint()
         g.dispose();
         ByteArrayOutputStream bit = new ByteArrayOutputStream();
@@ -155,21 +157,19 @@ public class RysowanieServer extends JFrame
 
     private class Server extends Thread
     {
+        public Registry registry;
         public void ubijSerwer()
         {
-            Registry rejestr;
-
-
-            try
-            {
-                //rejestr.unbind("RysowanieRMI");
-                //wyswietlKomunikat("Serwer został wyrejestrowany.");
+            System.out.println("Zatrzymuje...");
+            try {
+                registry.unbind("RDraw");
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (NotBoundException e) {
+                e.printStackTrace();
             }
-            catch (Exception e)
-            {
-                //wyswietlKomunikat("Nie udało się wyrejestrować serwera.");
+            this.stop();
 
-            }
         }
 
             public void run()
@@ -177,7 +177,7 @@ public class RysowanieServer extends JFrame
                 try
                 {
                     System.out.println("Uruchamiam...");
-                    Registry registry = LocateRegistry.createRegistry(1099);
+                    registry = LocateRegistry.createRegistry(1099);
                     RysowanieI remote = new RysowanieI();
                     registry.bind("RDraw",remote);
                     System.out.println("Uruchomiony");

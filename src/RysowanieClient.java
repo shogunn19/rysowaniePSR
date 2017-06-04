@@ -218,15 +218,17 @@ public class RysowanieClient extends JFrame
         wyczysc(probkaKoloru);
     }
 
-    public void rysowanie(Point wspolrzedna)
+    public void rysowanie(Point w)
     {
         try{
+            Point sloc = obszarLabel.getLocationOnScreen();
+            Point wspolrzedna = new Point(w.x-sloc.x,w.y-sloc.y);
             registry = LocateRegistry.getRegistry(1099);
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
             byte[] post;
-            post = rys.rysujrmi(wspolrzedna,Color.BLACK);
+            post = rys.rysujrmi(wspolrzedna,kolor);
             System.out.println(post.toString());
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);
