@@ -221,8 +221,10 @@ public class RysowanieClient extends JFrame
     public void rysowanie(Point w)
     {
         try{
+            int xoff = 45;
+            int yoff = 80;
             Point sloc = obszarLabel.getLocationOnScreen();
-            Point wspolrzedna = new Point(w.x-sloc.x,w.y-sloc.y);
+            Point wspolrzedna = new Point(w.x-sloc.x-xoff,w.y-sloc.y-yoff);
             registry = LocateRegistry.getRegistry(1099);
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
