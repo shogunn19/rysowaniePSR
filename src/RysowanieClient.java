@@ -6,8 +6,6 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.Serializable;
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.*;
@@ -19,8 +17,9 @@ import java.awt.*;
 public class RysowanieClient extends JFrame
 {
     private JPanel obszar;
-    private JPanel kontenerPrzybornik, kontenerPrzyciskGora, kontenerPrzyciskiDol ;
-    private JButton zapis, wczytywanie, przekaz, kolorBT;
+    private JPanel kontenerPrzyciskGora, kontenerPrzyciskiDol ;
+    private JToolBar kontenerPrzybornik;
+    private JButton zapis, wczytywanie, wyczysc, kolorBT;
     private JLabel przybornikLabel, obszarLabel, rozmiarLabel;
     private JRadioButton rysuj, pisz;
     private JSpinner rozmiarRysowania;
@@ -78,20 +77,23 @@ public class RysowanieClient extends JFrame
         obszarLabel.addMouseListener(new ObszarML());
 
 
-        kontenerPrzybornik = new JPanel();
+        kontenerPrzybornik = new JToolBar();
         kontenerPrzyciskGora = new JPanel();
-        przekaz = new JButton("Przekaż");
+        wyczysc = new JButton("Wyczyść obszar roboczy");
         kontenerPrzyciskiDol = new JPanel();
         zapis = new JButton("Zapisz do pliku");
         wczytywanie = new JButton("Wczytaj z pliku");
 
-        kontenerPrzyciskGora.add(przekaz);
+        kontenerPrzyciskGora.add(wyczysc);
         kontenerPrzyciskiDol.add(zapis);
         kontenerPrzyciskiDol.add(wczytywanie);
 
-        przybornikLabel = new JLabel("Przybornik");
-        kontenerPrzybornik.setLayout(new BoxLayout(kontenerPrzybornik, BoxLayout.Y_AXIS));
-        kontenerPrzybornik.add(przybornikLabel);
+        przybornikLabel = new JLabel("PRZYBORNIK");
+        przybornikLabel.setFont(new Font("Consolas", Font.BOLD, 17));
+        przybornikLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        //kontenerPrzybornik.setLayout(new BoxLayout(kontenerPrzybornik, BoxLayout.Y_AXIS));
+
 
         kolorBT = new JButton("Kolor");
         kolorBT.setToolTipText("Zaznacz kolor");
@@ -99,7 +101,7 @@ public class RysowanieClient extends JFrame
         kolorBT.setIcon(new ImageIcon(probkaKoloru));
         kolor(kolor);
 
-        rozmiarRysowaniaTryb = new SpinnerNumberModel(7,1,16,1);
+        rozmiarRysowaniaTryb = new SpinnerNumberModel(7,1,40,1);
         rozmiarRysowania = new JSpinner(rozmiarRysowaniaTryb);
         RozmiarRysCL rozmiarObsluga = new RozmiarRysCL();
         rozmiarRysowania.addChangeListener(rozmiarObsluga);
@@ -107,18 +109,28 @@ public class RysowanieClient extends JFrame
 
         rozmiarLabel = new JLabel("Rozmiar");
         rozmiarLabel.setLabelFor(rozmiarRysowania);
+        JToolBar toolBar = new JToolBar();
+        toolBar.setFloatable(false);
+        toolBar.add(rozmiarLabel);
+        toolBar.add(rozmiarRysowania);
 
         rysuj = new JRadioButton("Rysuj");
         pisz = new JRadioButton("Pisz");
         JPanel jp = new JPanel();
         jp.setLayout(new BoxLayout(jp, BoxLayout.Y_AXIS));
+        //jp.add(toolBar);
         jp.add(rysuj);
         jp.add(pisz);
 
-        //kontenerPrzybornik.add(rozmiarRysowania);
-        //kontenerPrzybornik.add(kolorBT);
+
         JPanel jp2 = new JPanel(new BorderLayout());
-        jp2.add(rozmiarRysowania, BorderLayout.NORTH);
+
+        JPanel jp3 = new JPanel(new BorderLayout());
+        jp3.add(przybornikLabel, BorderLayout.NORTH);
+        jp3.add(toolBar, BorderLayout.CENTER);
+
+        jp2.add(jp3, BorderLayout.NORTH);
+        //jp2.add(rozmiarRysowania, BorderLayout.NORTH);
         jp2.add(jp, BorderLayout.CENTER);
         jp2.add(kolorBT, BorderLayout.SOUTH);
         kontenerPrzybornik.add(jp2);
