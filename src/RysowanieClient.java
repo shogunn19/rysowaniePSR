@@ -6,6 +6,9 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.*;
@@ -84,6 +87,12 @@ public class RysowanieClient extends JFrame
         kontenerPrzybornik = new JToolBar();
         kontenerPrzyciskGora = new JPanel();
         wyczysc = new JButton("Wyczyść obszar roboczy");
+        wyczysc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                wyczyscObszar(BIzmienianyObszarRob);
+            }
+        });
         kontenerPrzyciskiDol = new JPanel();
         zapis = new JButton("Zapisz do pliku");
         wczytywanie = new JButton("Wczytaj z pliku");
@@ -299,6 +308,28 @@ public class RysowanieClient extends JFrame
 
         g.dispose();
         obszarLabel.repaint();
+    }
+
+    public void wyczyscObszar(BufferedImage bufferedImage)
+    {
+        try {
+            registry = LocateRegistry.getRegistry(1099);
+            rys = (Rysowanie)registry.lookup("RDraw");
+            ByteArrayOutputStream pre = new ByteArrayOutputStream();
+            ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
+            byte[] post;
+            post = rys.wyczyscrmi();
+            ByteArrayInputStream postb = new ByteArrayInputStream(post);
+            this.BIzmienianyObszarRob = ImageIO.read(postb);
+            obszarLabel.setIcon(new ImageIcon(this.BIzmienianyObszarRob));
+            obszarLabel.invalidate();
+        }catch (RemoteException e) {
+            e.printStackTrace(); //blad w getRegistry()
+        }catch (NotBoundException e){
+            e.printStackTrace(); //blad w lookup()
+        } catch (IOException e){
+            e.printStackTrace(); //blad w write()/read()
+        }
     }
 
     public static void main(String[] args) {
