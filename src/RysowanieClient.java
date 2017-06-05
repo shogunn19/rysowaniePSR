@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -39,6 +40,13 @@ public class RysowanieClient extends JFrame
 
     private Point zaznaczeniePunktPoczatkowy;
     private Rectangle zaznaczenie;
+    public Stroke obrys = new BasicStroke(7,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f);
+    //private Obryss obrys = new Obryss(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f);
+
+    /* zmienne do konstruktora obrysu*/
+    final int cap_round = 1, join_round = 1;
+    final float miterlimit = 1.7f;
+
     private Registry registry;
     private Rysowanie rys;
 
@@ -91,9 +99,12 @@ public class RysowanieClient extends JFrame
         kolorBT.setIcon(new ImageIcon(probkaKoloru));
         kolor(kolor);
 
-        rozmiarRysowaniaTryb = new SpinnerNumberModel(3,1,16,1);
+        rozmiarRysowaniaTryb = new SpinnerNumberModel(7,1,16,1);
         rozmiarRysowania = new JSpinner(rozmiarRysowaniaTryb);
-        rozmiarRysowania.addChangeListener(new RozmiarRysCL());
+        RozmiarRysCL rozmiarObsluga = new RozmiarRysCL();
+        rozmiarRysowania.addChangeListener(rozmiarObsluga);
+        rozmiarRysowania.setMaximumSize(rozmiarRysowania.getPreferredSize());
+
         rozmiarLabel = new JLabel("Rozmiar");
         rozmiarLabel.setLabelFor(rozmiarRysowania);
 
@@ -156,6 +167,17 @@ public class RysowanieClient extends JFrame
         }
     }
 
+    /*
+    class Obryss extends BasicStroke implements Serializable
+    {
+        protected static final long serialVersionUID = 1L;
+
+        public Obryss(float width, int cap, int join, float miterlimit)
+        {
+            super(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f);
+        }
+    }*/
+
     private class KolorML implements ActionListener {
 
         @Override
@@ -202,13 +224,12 @@ public class RysowanieClient extends JFrame
 
     private class RozmiarRysCL implements ChangeListener
     {
-
         @Override
         public void stateChanged(ChangeEvent e)
         {
             Object obiekt = rozmiarRysowaniaTryb.getValue();
             Integer calkowi = (Integer) obiekt;
-            BasicStroke rozmiar = new BasicStroke(calkowi.intValue(), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.7f);
+            obrys = new BasicStroke(calkowi.intValue(), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.7f);
         }
     }
 
@@ -230,7 +251,7 @@ public class RysowanieClient extends JFrame
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
             byte[] post;
-            post = rys.rysujrmi(wspolrzedna,kolor);
+            post = rys.rysujrmi(wspolrzedna, kolor, rozmiarRysowaniaTryb.getValue() ,cap_round, join_round, miterlimit);
             System.out.println(post.toString());
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);
@@ -247,7 +268,7 @@ public class RysowanieClient extends JFrame
             Graphics2D g = this.BIzmienianyObszarRob.createGraphics();
             g.setRenderingHints(rh);
             g.setColor(Color.WHITE);
-            g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
+            g.setStroke(new BasicStroke(7,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
             g.drawString(tresc,wspolrzedna.x ,wspolrzedna.y);
             g.dispose();
         }

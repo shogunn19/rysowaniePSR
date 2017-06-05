@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -14,6 +15,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Zdzislaw on 17.04.2017.
@@ -21,7 +23,7 @@ import java.util.Map;
 
 interface Rysowanie extends Remote
 {
-    public byte[] rysujrmi(Point p, Color c) throws RemoteException;
+    public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] setrmi() throws RemoteException;
 }
 class RysowanieI extends UnicastRemoteObject implements Rysowanie
@@ -57,13 +59,17 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         System.out.println("SETTED");
         return bit.toByteArray();
     }
-    public byte[] rysujrmi(Point p, Color c)
+    public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit)
     {
+        String rZS= rozmiarZSpinera.toString();
+        rZS = rZS.replaceAll("[^\\d.]", "");
+        int rozmiarSpinner = Integer.parseInt(rZS);
+
         int i=0;
         Graphics2D g = common.createGraphics();
         g.setRenderingHints(rh);
         g.setColor(c);
-        g.setStroke(new BasicStroke(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
+        g.setStroke(new BasicStroke(rozmiarSpinner, capRound, joinRound, miterLimit));
         g.drawLine(p.x,p.y,p.x+i,p.y+i);
 
         //g.repaint()
@@ -78,6 +84,7 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         System.out.println("DRAWED");
         return bit.toByteArray();
     }
+
 }
 
 public class RysowanieServer extends JFrame
