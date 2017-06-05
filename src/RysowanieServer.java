@@ -92,7 +92,7 @@ public class RysowanieServer extends JFrame
     private JPanel kontener;
     private JTextField portPole;
     private JLabel portNapis;
-    private final int nrPortu = 1099;
+    private int nrPortu = 1099;
     private JButton uruchom, zatrzymaj;
     private JTextArea komunikaty;
     RysowanieServer referencjaSerwera;
@@ -139,6 +139,8 @@ public class RysowanieServer extends JFrame
         public void actionPerformed(ActionEvent e) {
             if(e.getActionCommand().equals("Uruchom"))
             {
+                nrPortu = Integer.parseInt(portPole.getText());
+                System.out.println(nrPortu);
                 serwer = new Server();
                 serwer.start();
 
@@ -184,7 +186,7 @@ public class RysowanieServer extends JFrame
                 try
                 {
                     System.out.println("Uruchamiam...");
-                    registry = LocateRegistry.createRegistry(1099);
+                    registry = LocateRegistry.createRegistry(nrPortu);
                     RysowanieI remote = new RysowanieI();
                     registry.bind("RDraw",remote);
                     System.out.println("Uruchomiony");
