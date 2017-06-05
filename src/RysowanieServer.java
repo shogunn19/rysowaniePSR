@@ -25,6 +25,7 @@ interface Rysowanie extends Remote
 {
     public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] setrmi() throws RemoteException;
+    public byte[] wyczyscrmi() throws RemoteException;
 }
 class RysowanieI extends UnicastRemoteObject implements Rysowanie
 {
@@ -82,6 +83,25 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         }
 
         System.out.println("DRAWED");
+        return bit.toByteArray();
+    }
+
+    public byte[] wyczyscrmi()
+    {
+        Graphics2D g = common.createGraphics();
+        g.setRenderingHints(rh);
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, common.getWidth(), common.getHeight());
+
+        g.dispose();
+        //obszarLabel.repaint();
+
+        ByteArrayOutputStream bit = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(common,"jpg",bit);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return bit.toByteArray();
     }
 
