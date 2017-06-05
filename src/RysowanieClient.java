@@ -123,8 +123,12 @@ public class RysowanieClient extends JFrame
         toolBar.add(rozmiarLabel);
         toolBar.add(rozmiarRysowania);
 
-        rysuj = new JRadioButton("Rysuj");
-        pisz = new JRadioButton("Pisz");
+        rysuj = new JRadioButton("Rysuj", true);
+        pisz = new JRadioButton("Pisz", false);
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(rysuj);
+        buttonGroup.add(pisz);
+
         JPanel jp = new JPanel();
         jp.setLayout(new BoxLayout(jp, BoxLayout.Y_AXIS));
         //jp.add(toolBar);
