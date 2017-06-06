@@ -23,8 +23,9 @@ import java.util.Objects;
 
 interface Rysowanie extends Remote
 {
-    public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] setrmi() throws RemoteException;
+    public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit) throws RemoteException;
+    public byte[] piszrmi(String s, Point p, Color c, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] wyczyscrmi() throws RemoteException;
 }
 class RysowanieI extends UnicastRemoteObject implements Rysowanie
@@ -83,6 +84,26 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         }
 
         System.out.println("DRAWED");
+        return bit.toByteArray();
+    }
+
+    public byte[] piszrmi(String s, Point p, Color c, int capRound, int joinRound, float miterLimit) throws RemoteException {
+
+
+        Graphics2D g = common.createGraphics();
+        g.setRenderingHints(rh);
+        g.setColor(c);
+        g.setStroke(new BasicStroke(3, capRound, joinRound, miterLimit));
+        g.drawString(s, p.x ,p.y);
+        g.dispose();
+
+        ByteArrayOutputStream bit = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(common,"jpg",bit);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return bit.toByteArray();
     }
 
