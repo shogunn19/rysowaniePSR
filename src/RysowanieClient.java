@@ -89,6 +89,7 @@ public class RysowanieClient extends JFrame
         kontenerPrzybornik = new JToolBar();
         kontenerPrzyciskGora = new JPanel();
         wyczysc = new JButton("Wyczyść obszar roboczy");
+        wyczysc.setIcon(new ImageIcon(getClass().getResource("/erase.png")));
         wyczysc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,12 +98,14 @@ public class RysowanieClient extends JFrame
         });
         kontenerPrzyciskiDol = new JPanel();
         zapis = new JButton("Zapisz do pliku");
+        zapis.setIcon(new ImageIcon(getClass().getResource("/save.png")));
         wczytywanie = new JButton("Wczytaj z pliku");
+        wczytywanie.setIcon(new ImageIcon(getClass().getResource("/open.png")));
         zapis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser wyborPliku = new JFileChooser();
-                wyborPliku.setFileFilter(new FileNameExtensionFilter("Rozszerzenia graficzne", "jpg", "png", "gif", "jpeg"));
+                wyborPliku.setFileFilter(new FileNameExtensionFilter("Pliki graficzne", "jpg", "png", "gif", "jpeg"));
                 int odpowiedzZapisu = wyborPliku.showSaveDialog(obszar);
                 if(odpowiedzZapisu == JFileChooser.APPROVE_OPTION){
                     try {
@@ -126,7 +129,7 @@ public class RysowanieClient extends JFrame
                 if (odpowiedzZapisu==JFileChooser.APPROVE_OPTION ) {
                     try {
                         BufferedImage BIzmieniany = ImageIO.read(wyborPliku.getSelectedFile());
-                        ustawObszar(BIzmieniany);
+                        odczytaj(BIzmieniany);
                     }catch (IOException ex){
                         ex.printStackTrace();
                     }
@@ -157,7 +160,7 @@ public class RysowanieClient extends JFrame
         rozmiarRysowania.addChangeListener(rozmiarObsluga);
         rozmiarRysowania.setMaximumSize(rozmiarRysowania.getPreferredSize());
 
-        rozmiarLabel = new JLabel("Rozmiar");
+        rozmiarLabel = new JLabel("Rozmiar : ");
         rozmiarLabel.setLabelFor(rozmiarRysowania);
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
@@ -211,8 +214,8 @@ public class RysowanieClient extends JFrame
     public void ustawObszar(BufferedImage bi)
     {
         BIwyjsciowyObszarRob = bi;
-        int wysokosc = bi.getHeight();
-        int szerokosc = bi.getWidth();
+        //int wysokosc = bi.getHeight();
+        //int szerokosc = bi.getWidth();
         BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
         BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
         try{
@@ -246,6 +249,29 @@ public class RysowanieClient extends JFrame
             super(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f);
         }
     }*/
+
+    public void odczytaj(BufferedImage bi)
+    {
+        this.BIwyjsciowyObszarRob = bi;
+        int w = bi.getWidth();
+        int h = bi.getHeight();
+        BIzmienianyObszarRob = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g = this.BIzmienianyObszarRob.createGraphics();
+        g.setRenderingHints(rh);
+        g.drawImage(bi, 0, 0, obszar);
+        g.dispose();
+
+        zaznaczenie = new Rectangle(0,0,w,h);
+        if (obszarLabel!=null) {
+            obszarLabel.setIcon(new ImageIcon(BIzmienianyObszarRob));
+            obszarLabel.repaint();
+        }
+
+        if (obszar!=null) {
+            obszar.invalidate();
+        }
+    }
 
     private class KolorML implements ActionListener {
 
@@ -344,17 +370,18 @@ public class RysowanieClient extends JFrame
         {
             registry = LocateRegistry.getRegistry(nrPortu);
             rys = (Rysowanie) registry.lookup("RDraw");
+            String tresc = JOptionPane.showInputDialog(obszar, "Jaki tekst wstawic?", "Moj pierwszy rysunek");
+            if(tresc!=null){
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob, "jpg", pre);
             byte[] post;
-            String tresc = JOptionPane.showInputDialog(obszar, "Jaki tekst wstawic?", "Moj pierwszy rysunek");
-
             post = rys.piszrmi(tresc, wspolrzedna, kolor, cap_round, join_round, miterlimit);
+
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);
             obszarLabel.setIcon(new ImageIcon(this.BIzmienianyObszarRob));
             obszarLabel.invalidate();
-
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }

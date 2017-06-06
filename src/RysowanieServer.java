@@ -58,7 +58,7 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("SETTED");
+        //System.out.println("SETTED");
         return bit.toByteArray();
     }
     public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit)
