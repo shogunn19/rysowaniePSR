@@ -17,6 +17,8 @@ import java.awt.*;
 /**
  * Created on 17.04.2017.
  */
+
+
 public class RysowanieClient extends JFrame
 {
     private JPanel obszar;
@@ -39,6 +41,7 @@ public class RysowanieClient extends JFrame
     private BufferedImage probkaKoloru = new BufferedImage(16,16,BufferedImage.TYPE_INT_RGB);
     private RenderingHints rh;
     private Color kolor;
+    private int nrPortu;
 
     private Point zaznaczeniePunktPoczatkowy;
     private Rectangle zaznaczenie;
@@ -53,12 +56,13 @@ public class RysowanieClient extends JFrame
     private Rysowanie rys;
 
 
-    public RysowanieClient()
+    public RysowanieClient(int port)
     {
         setTitle("Klient");
         //setSize(Toolkit.getDefaultToolkit().getScreenSize());
         //this.setState(JFrame.MAXIMIZED_BOTH);
         //setSize(600,600);
+        nrPortu = port;
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -155,7 +159,7 @@ public class RysowanieClient extends JFrame
 
 
         try{
-            registry = LocateRegistry.getRegistry(1099);
+            registry = LocateRegistry.getRegistry(nrPortu);
             rys = (Rysowanie) registry.lookup("RDraw");
         }catch (Exception e){e.printStackTrace();}
         this.setMinimumSize(this.getSize());
@@ -172,7 +176,7 @@ public class RysowanieClient extends JFrame
         BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
         BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
         try{
-            registry = LocateRegistry.getRegistry(1099);
+            registry = LocateRegistry.getRegistry(nrPortu);
             rys = (Rysowanie) registry.lookup("RDraw");
             ByteArrayInputStream bout = new ByteArrayInputStream(rys.setrmi());
             rmiPic = ImageIO.read(bout);
@@ -267,11 +271,11 @@ public class RysowanieClient extends JFrame
     public void rysowanie(Point w)
     {
         try{
-            int xoff = 45;
-            int yoff = 80;
-            Point sloc = obszarLabel.getLocationOnScreen();
+            int xoff = 0;
+            int yoff = 0;
+            Point sloc = obszar.getLocationOnScreen();
             Point wspolrzedna = new Point(w.x-sloc.x-xoff,w.y-sloc.y-yoff);
-            registry = LocateRegistry.getRegistry(1099);
+            registry = LocateRegistry.getRegistry(nrPortu);
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
@@ -333,6 +337,6 @@ public class RysowanieClient extends JFrame
     }
 
     public static void main(String[] args) {
-        new RysowanieClient();
+        new RysowanieClient(Integer.parseInt(args[0]));
     }
 }
