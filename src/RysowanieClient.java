@@ -2,10 +2,12 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -96,6 +98,41 @@ public class RysowanieClient extends JFrame
         kontenerPrzyciskiDol = new JPanel();
         zapis = new JButton("Zapisz do pliku");
         wczytywanie = new JButton("Wczytaj z pliku");
+        zapis.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser wyborPliku = new JFileChooser();
+                wyborPliku.setFileFilter(new FileNameExtensionFilter("Rozszerzenia graficzne", "jpg", "png", "gif", "jpeg"));
+                int odpowiedzZapisu = wyborPliku.showSaveDialog(obszar);
+                if(odpowiedzZapisu == JFileChooser.APPROVE_OPTION){
+                    try {
+                        File plik = wyborPliku.getSelectedFile();
+                        ImageIO.write(BIzmienianyObszarRob,"jpg", plik);
+                        BIwyjsciowyObszarRob = BIzmienianyObszarRob;
+                    }catch (IOException ex){
+                        ex.printStackTrace();
+                    }
+
+                }
+            }
+        });
+
+        wczytywanie.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser wyborPliku = new JFileChooser();
+                wyborPliku.setFileFilter(new FileNameExtensionFilter("Rozszerzenia graficzne", "jpg", "png", "gif", "jpeg"));
+                int odpowiedzZapisu = wyborPliku.showOpenDialog(obszar);
+                if (odpowiedzZapisu==JFileChooser.APPROVE_OPTION ) {
+                    try {
+                        BufferedImage BIzmieniany = ImageIO.read(wyborPliku.getSelectedFile());
+                        ustawObszar(BIzmieniany);
+                    }catch (IOException ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
 
         kontenerPrzyciskGora.add(wyczysc);
         kontenerPrzyciskiDol.add(zapis);
