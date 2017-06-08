@@ -78,7 +78,7 @@ public class RysowanieClient extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("rysowanieRMIico.png")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("rysowanieKlient.png")));
         Map<RenderingHints.Key, Object> hm = new HashMap<RenderingHints.Key,Object>();
         hm.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         hm.put(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
@@ -117,7 +117,7 @@ public class RysowanieClient extends JFrame
                 BufferedImage conversion = new BufferedImage(BIzmienianyObszarRob.getWidth(),BIzmienianyObszarRob.getHeight(),BufferedImage.TYPE_INT_RGB);
                 conversion.createGraphics().drawImage(BIzmienianyObszarRob,0,0, Color.WHITE, null);
                 saver.setFileFilter(new FileNameExtensionFilter("Pliki graficzne","jpg","jpeg","gif","png"));
-                if(saver.showOpenDialog(zapis)==JFileChooser.APPROVE_OPTION){
+                if(saver.showSaveDialog(zapis)==JFileChooser.APPROVE_OPTION){
                     File out = saver.getSelectedFile();
                 try {
                     ImageIO.write(conversion,"jpg",out);

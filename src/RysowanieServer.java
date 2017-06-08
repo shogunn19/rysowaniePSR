@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Created by Zdzislaw on 17.04.2017.
+ * Created on 17.04.2017.
  */
 
 interface Rysowanie extends Remote
@@ -168,6 +168,8 @@ public class RysowanieServer extends JFrame
         setSize(450, 150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout()); //wg kierunkow
+
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("rysowanieServer.png")));
 
         kontener = new JPanel(new FlowLayout()); //w kontenerze poziomo
         portNapis = new JLabel("Port RMI: ");
