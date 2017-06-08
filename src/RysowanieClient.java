@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -14,6 +15,11 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.*;
 import java.awt.*;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+//import org.apache.commons.lang2.ArrayUtils;
 
 /**
  * Created on 17.04.2017.
@@ -57,6 +63,8 @@ public class RysowanieClient extends JFrame
     private Registry registry;
     private Rysowanie rys;
 
+    private byte[] post;
+
 
     public RysowanieClient(int port)
     {
@@ -83,13 +91,15 @@ public class RysowanieClient extends JFrame
         obszarLabel = new JLabel(new ImageIcon(BIzmienianyObszarRob));
         obszar.add(obszarLabel);
         obszarLabel.addMouseMotionListener(new ObszarMML());
-        obszarLabel.addMouseListener(new ObszarML());
+        obszarLabel.addMouseListener(new ObszarMA());
         saver = new JFileChooser();
+
 
 
         kontenerPrzybornik = new JToolBar();
         kontenerPrzyciskGora = new JPanel();
         wyczysc = new JButton("Wyczyść obszar roboczy");
+        wyczysc.setIcon(new ImageIcon(getClass().getResource("/erase.png")));
         wyczysc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,6 +114,7 @@ public class RysowanieClient extends JFrame
             {
                 BufferedImage conversion = new BufferedImage(BIzmienianyObszarRob.getWidth(),BIzmienianyObszarRob.getHeight(),BufferedImage.TYPE_INT_RGB);
                 conversion.createGraphics().drawImage(BIzmienianyObszarRob,0,0, Color.WHITE, null);
+                saver.setFileFilter(new FileNameExtensionFilter("Pliki graficzne","jpg","jpeg","gif","png"));
                 if(saver.showOpenDialog(zapis)==JFileChooser.APPROVE_OPTION){
                     File out = saver.getSelectedFile();
                 try {
@@ -113,7 +124,16 @@ public class RysowanieClient extends JFrame
                 }
             }}
         });
+        zapis.setIcon(new ImageIcon(getClass().getResource("/save.png")));
         wczytywanie = new JButton("Wczytaj z pliku");
+        wczytywanie.setIcon(new ImageIcon(getClass().getResource("/open.png")));
+
+        wczytywanie.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                odczytaj();
+            }
+        });
 
         kontenerPrzyciskGora.add(wyczysc);
         kontenerPrzyciskiDol.add(zapis);
@@ -138,15 +158,22 @@ public class RysowanieClient extends JFrame
         rozmiarRysowania.addChangeListener(rozmiarObsluga);
         rozmiarRysowania.setMaximumSize(rozmiarRysowania.getPreferredSize());
 
-        rozmiarLabel = new JLabel("Rozmiar");
+        rozmiarLabel = new JLabel("Rozmiar : ");
         rozmiarLabel.setLabelFor(rozmiarRysowania);
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
         toolBar.add(rozmiarLabel);
         toolBar.add(rozmiarRysowania);
 
-        rysuj = new JRadioButton("Rysuj");
-        pisz = new JRadioButton("Pisz");
+        rysuj = new JRadioButton("Rysuj", true);
+        pisz = new JRadioButton("Pisz", false);
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(rysuj);
+        buttonGroup.add(pisz);
+
+        rysuj.addActionListener(new JRadioAL());
+        pisz.addActionListener(new JRadioAL());
+
         JPanel jp = new JPanel();
         jp.setLayout(new BoxLayout(jp, BoxLayout.Y_AXIS));
         //jp.add(toolBar);
@@ -185,10 +212,10 @@ public class RysowanieClient extends JFrame
     public void ustawObszar(BufferedImage bi)
     {
         BIwyjsciowyObszarRob = bi;
-        int wysokosc = bi.getHeight();
-        int szerokosc = bi.getWidth();
-        BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
-        BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+        //int wysokosc = bi.getHeight();
+        //int szerokosc = bi.getWidth();
+        BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_RGB);
+        BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_RGB);
         try{
             registry = LocateRegistry.getRegistry(nrPortu);
             rys = (Rysowanie) registry.lookup("RDraw");
@@ -221,6 +248,39 @@ public class RysowanieClient extends JFrame
         }
     }*/
 
+    public void odczytaj()
+    {
+        try {
+
+            registry = LocateRegistry.getRegistry(nrPortu);
+            rys = (Rysowanie)registry.lookup("RDraw");
+            ByteArrayOutputStream pre = new ByteArrayOutputStream();
+            ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
+            //byte[] post;
+            JFileChooser wyborPliku = new JFileChooser();
+            //wyborPliku.setFileFilter(new FileNameExtensionFilter("Rozszerzenia graficzne", "jpg", "png", "gif", "jpeg"));
+            int odpowiedzZapisu = wyborPliku.showOpenDialog(obszar);
+            if (odpowiedzZapisu==JFileChooser.APPROVE_OPTION )
+            {
+                    post = rys.odczytajrmi(wyborPliku);
+                ByteArrayInputStream postb = new ByteArrayInputStream(post);
+                this.BIzmienianyObszarRob = ImageIO.read(postb);
+                if (obszarLabel!=null) {
+                    obszarLabel.setIcon(new ImageIcon(BIzmienianyObszarRob));
+                    obszarLabel.repaint();
+                }
+
+                if (obszar!=null) {
+                    obszar.invalidate();
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     private class KolorML implements ActionListener {
 
         @Override
@@ -237,7 +297,7 @@ public class RysowanieClient extends JFrame
         }
     }
 
-    private class ObszarMML extends MouseMotionAdapter {
+    private class ObszarMML extends MouseMotionAdapter { //MouseMotionListener
 
         @Override
         public void mouseDragged(MouseEvent e) {
@@ -249,7 +309,7 @@ public class RysowanieClient extends JFrame
 
     }
 
-    private class ObszarML extends MouseAdapter
+    private class ObszarMA extends MouseAdapter
     {
         @Override
         public void mousePressed(MouseEvent e)
@@ -276,6 +336,14 @@ public class RysowanieClient extends JFrame
         }
     }
 
+    private class JRadioAL implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == rysuj) aktywneNarzedzie = RYSOWANIE_NARZEDZIE;
+            else if(e.getSource() == pisz) aktywneNarzedzie = TEXT_NARZEDZIE;
+        }
+    }
+
     public void kolor(Color kolor)
     {
         this.kolor = kolor;
@@ -293,9 +361,9 @@ public class RysowanieClient extends JFrame
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
-            byte[] post;
+            //byte[] post;
             post = rys.rysujrmi(wspolrzedna, kolor, rozmiarRysowaniaTryb.getValue() ,cap_round, join_round, miterlimit);
-            System.out.println(post.toString());
+            //System.out.println(post.toString());
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);
             obszarLabel.setIcon(new ImageIcon(this.BIzmienianyObszarRob));
@@ -306,14 +374,24 @@ public class RysowanieClient extends JFrame
 
     public void pisanie(Point wspolrzedna)
     {
-        String tresc = JOptionPane.showInputDialog(obszar, "Jaki tekst wstawic?", "Moj pierwszy rysunek");
-        if (tresc!=null) {
-            Graphics2D g = this.BIzmienianyObszarRob.createGraphics();
-            g.setRenderingHints(rh);
-            g.setColor(Color.WHITE);
-            g.setStroke(new BasicStroke(7,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f));
-            g.drawString(tresc,wspolrzedna.x ,wspolrzedna.y);
-            g.dispose();
+        try
+        {
+            registry = LocateRegistry.getRegistry(nrPortu);
+            rys = (Rysowanie) registry.lookup("RDraw");
+            String tresc = JOptionPane.showInputDialog(obszar, "Jaki tekst wstawic?", "Moj pierwszy rysunek");
+            if(tresc!=null){
+            ByteArrayOutputStream pre = new ByteArrayOutputStream();
+            ImageIO.write(BIzmienianyObszarRob, "jpg", pre);
+            //byte[] post;
+            post = rys.piszrmi(tresc, wspolrzedna, kolor, cap_round, join_round, miterlimit);
+
+            ByteArrayInputStream postb = new ByteArrayInputStream(post);
+            this.BIzmienianyObszarRob = ImageIO.read(postb);
+            obszarLabel.setIcon(new ImageIcon(this.BIzmienianyObszarRob));
+            obszarLabel.invalidate();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -335,7 +413,7 @@ public class RysowanieClient extends JFrame
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
-            byte[] post;
+            //byte[] post;
             post = rys.wyczyscrmi();
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);
