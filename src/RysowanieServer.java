@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
@@ -27,7 +28,7 @@ interface Rysowanie extends Remote
     public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] piszrmi(String s, Point p, Color c, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] wyczyscrmi() throws RemoteException;
-    public byte[] odczytajrmi(JFileChooser jFileChooser) throws RemoteException;
+    public byte[] odczytajrmi(byte[] input) throws RemoteException;
 }
 class RysowanieI extends UnicastRemoteObject implements Rysowanie
 {
@@ -134,22 +135,15 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
 
 
 
-    public byte[] odczytajrmi(JFileChooser jFileChooser) throws RemoteException
+    public byte[] odczytajrmi(byte[] input) throws RemoteException
     {
-        ByteArrayOutputStream bit = new ByteArrayOutputStream();
+        ByteArrayInputStream bais = new ByteArrayInputStream(input);
         try {
-            BufferedImage BIzmieniany = ImageIO.read(jFileChooser.getSelectedFile());
-            Graphics2D g = BIzmieniany.createGraphics();
-            g.setRenderingHints(rh);
-            g.drawImage(BIzmieniany, 0, 0, obszarJP);
-            g.dispose();
-
-            ImageIO.write(BIzmieniany,"jpg",bit);
-
+            common = ImageIO.read(bais);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return bit.toByteArray();
+        return input;
     }
 
 }

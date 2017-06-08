@@ -37,6 +37,7 @@ public class RysowanieClient extends JFrame
     private JSpinner rozmiarRysowania;
     private SpinnerNumberModel rozmiarRysowaniaTryb;
     private JFileChooser saver;
+    private JFileChooser reader;
     //private JScrollPane obszarScroll;
 
 
@@ -93,6 +94,7 @@ public class RysowanieClient extends JFrame
         obszarLabel.addMouseMotionListener(new ObszarMML());
         obszarLabel.addMouseListener(new ObszarMA());
         saver = new JFileChooser();
+        reader = new JFileChooser();
 
 
 
@@ -131,7 +133,21 @@ public class RysowanieClient extends JFrame
         wczytywanie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                odczytaj();
+                if(reader.showOpenDialog(wczytywanie)==JFileChooser.APPROVE_OPTION)
+                {
+                    try {
+                    registry = LocateRegistry.getRegistry(nrPortu);
+                    rys = (Rysowanie) registry.lookup("RDraw");
+                    File in = reader.getSelectedFile();
+                    BufferedImage inp = ImageIO.read(in);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    ImageIO.write(inp,"jpg",baos);
+                    byte[] finalArray = rys.odczytajrmi(baos.toByteArray());
+                    BIzmienianyObszarRob = ImageIO.read(new ByteArrayInputStream(finalArray));
+                    obszarLabel.setIcon(new ImageIcon(BIzmienianyObszarRob));
+                    obszarLabel.invalidate();
+                    }catch (Exception e2){JOptionPane.showMessageDialog(wczytywanie,"Coś poszło nie tak");}
+                }
             }
         });
 
@@ -248,7 +264,7 @@ public class RysowanieClient extends JFrame
         }
     }*/
 
-    public void odczytaj()
+ /*   public void odczytaj()
     {
         try {
 
@@ -280,7 +296,7 @@ public class RysowanieClient extends JFrame
         }
 
     }
-
+*/
     private class KolorML implements ActionListener {
 
         @Override
