@@ -138,12 +138,15 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
     public byte[] odczytajrmi(byte[] input) throws RemoteException
     {
         ByteArrayInputStream bais = new ByteArrayInputStream(input);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-            common = ImageIO.read(bais);
+            BufferedImage tmp = ImageIO.read(bais);
+            common.createGraphics().drawImage(tmp,0,0,Color.WHITE,null);
+            ImageIO.write(common,"jpg",baos);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return input;
+        return baos.toByteArray();
     }
 
 }
