@@ -207,14 +207,21 @@ public class RysowanieServer extends JFrame
             if(e.getActionCommand().equals("Uruchom"))
             {
                 nrPortu = Integer.parseInt(portPole.getText());
-                System.out.println(nrPortu);
-                serwer = new Server();
-                serwer.start();
+                if(nrPortu==80 || nrPortu==81 || nrPortu==443 || nrPortu==53)
+                {
+                    JOptionPane.showMessageDialog(uruchom,"Zajęty numer portu");
 
-                uruchom.setEnabled(false);
-                zatrzymaj.setEnabled(true);
-                portPole.setEnabled(false);
-                repaint();
+                }
+                else {
+                    System.out.println(nrPortu);
+                    serwer = new Server();
+                    serwer.start();
+
+                    uruchom.setEnabled(false);
+                    zatrzymaj.setEnabled(true);
+                    portPole.setEnabled(false);
+                    repaint();
+                }
             }
             if (e.getActionCommand().equals("Zatrzymaj"))
             {
