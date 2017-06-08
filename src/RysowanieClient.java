@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -29,6 +30,7 @@ public class RysowanieClient extends JFrame
     private JRadioButton rysuj, pisz;
     private JSpinner rozmiarRysowania;
     private SpinnerNumberModel rozmiarRysowaniaTryb;
+    private JFileChooser saver;
     //private JScrollPane obszarScroll;
 
 
@@ -82,6 +84,7 @@ public class RysowanieClient extends JFrame
         obszar.add(obszarLabel);
         obszarLabel.addMouseMotionListener(new ObszarMML());
         obszarLabel.addMouseListener(new ObszarML());
+        saver = new JFileChooser();
 
 
         kontenerPrzybornik = new JToolBar();
@@ -95,6 +98,21 @@ public class RysowanieClient extends JFrame
         });
         kontenerPrzyciskiDol = new JPanel();
         zapis = new JButton("Zapisz do pliku");
+        zapis.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                BufferedImage conversion = new BufferedImage(BIzmienianyObszarRob.getWidth(),BIzmienianyObszarRob.getHeight(),BufferedImage.TYPE_INT_RGB);
+                conversion.createGraphics().drawImage(BIzmienianyObszarRob,0,0, Color.WHITE, null);
+                if(saver.showOpenDialog(zapis)==JFileChooser.APPROVE_OPTION){
+                    File out = saver.getSelectedFile();
+                try {
+                    ImageIO.write(conversion,"jpg",out);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }}
+        });
         wczytywanie = new JButton("Wczytaj z pliku");
 
         kontenerPrzyciskGora.add(wyczysc);
@@ -177,7 +195,7 @@ public class RysowanieClient extends JFrame
             ByteArrayInputStream bout = new ByteArrayInputStream(rys.setrmi());
             rmiPic = ImageIO.read(bout);
             BIzmienianyObszarRob = rmiPic;
-        }catch (Exception e){e.printStackTrace();}
+        }catch (Exception e){JOptionPane.showMessageDialog(this,"Nie można połączyć z serwerem");System.exit(-1);}
 
         if(obszarLabel !=null)
         {
