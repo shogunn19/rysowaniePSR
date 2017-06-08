@@ -16,6 +16,11 @@ import java.rmi.registry.Registry;
 import java.util.*;
 import java.awt.*;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+//import org.apache.commons.lang2.ArrayUtils;
+
 /**
  * Created on 17.04.2017.
  */
@@ -56,6 +61,8 @@ public class RysowanieClient extends JFrame
 
     private Registry registry;
     private Rysowanie rys;
+
+    private byte[] post;
 
 
     public RysowanieClient(int port)
@@ -110,6 +117,18 @@ public class RysowanieClient extends JFrame
                 if(odpowiedzZapisu == JFileChooser.APPROVE_OPTION){
                     try {
                         File plik = wyborPliku.getSelectedFile();
+                        /*
+                        byte[] tbyte = {4, 10, 8, 6, 4, 9, 8, 6};
+                        byte[] suma = new byte[post.length + tbyte.length];//(byte[])ArrayUtils
+                        for (int i = 0; i < 8; i++) {
+                            suma[i]=tbyte[i];
+                        }
+                        for (int i = 8; i < suma.length; i++) {
+                            suma[i]=post[i-8];
+                        }
+                        Path path = Paths.get(plik.toString());
+                        Files.write(path, suma);
+                        */
                         ImageIO.write(BIzmienianyObszarRob,"jpg", plik);
                         BIwyjsciowyObszarRob = BIzmienianyObszarRob;
                     }catch (IOException ex){
@@ -123,17 +142,7 @@ public class RysowanieClient extends JFrame
         wczytywanie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser wyborPliku = new JFileChooser();
-                wyborPliku.setFileFilter(new FileNameExtensionFilter("Rozszerzenia graficzne", "jpg", "png", "gif", "jpeg"));
-                int odpowiedzZapisu = wyborPliku.showOpenDialog(obszar);
-                if (odpowiedzZapisu==JFileChooser.APPROVE_OPTION ) {
-                    try {
-                        BufferedImage BIzmieniany = ImageIO.read(wyborPliku.getSelectedFile());
-                        odczytaj(BIzmieniany);
-                    }catch (IOException ex){
-                        ex.printStackTrace();
-                    }
-                }
+                odczytaj();
             }
         });
 
@@ -216,8 +225,8 @@ public class RysowanieClient extends JFrame
         BIwyjsciowyObszarRob = bi;
         //int wysokosc = bi.getHeight();
         //int szerokosc = bi.getWidth();
-        BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
-        BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+        BIzmienianyObszarRob = new BufferedImage(1300,650,BufferedImage.TYPE_INT_RGB);
+        BufferedImage rmiPic = new BufferedImage(1300,650,BufferedImage.TYPE_INT_RGB);
         try{
             registry = LocateRegistry.getRegistry(nrPortu);
             rys = (Rysowanie) registry.lookup("RDraw");
@@ -250,27 +259,37 @@ public class RysowanieClient extends JFrame
         }
     }*/
 
-    public void odczytaj(BufferedImage bi)
+    public void odczytaj()
     {
-        this.BIwyjsciowyObszarRob = bi;
-        int w = bi.getWidth();
-        int h = bi.getHeight();
-        BIzmienianyObszarRob = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+        try {
 
-        Graphics2D g = this.BIzmienianyObszarRob.createGraphics();
-        g.setRenderingHints(rh);
-        g.drawImage(bi, 0, 0, obszar);
-        g.dispose();
+            registry = LocateRegistry.getRegistry(nrPortu);
+            rys = (Rysowanie)registry.lookup("RDraw");
+            ByteArrayOutputStream pre = new ByteArrayOutputStream();
+            ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
+            //byte[] post;
+            JFileChooser wyborPliku = new JFileChooser();
+            //wyborPliku.setFileFilter(new FileNameExtensionFilter("Rozszerzenia graficzne", "jpg", "png", "gif", "jpeg"));
+            int odpowiedzZapisu = wyborPliku.showOpenDialog(obszar);
+            if (odpowiedzZapisu==JFileChooser.APPROVE_OPTION )
+            {
+                    post = rys.odczytajrmi(wyborPliku);
+                ByteArrayInputStream postb = new ByteArrayInputStream(post);
+                this.BIzmienianyObszarRob = ImageIO.read(postb);
+                if (obszarLabel!=null) {
+                    obszarLabel.setIcon(new ImageIcon(BIzmienianyObszarRob));
+                    obszarLabel.repaint();
+                }
 
-        zaznaczenie = new Rectangle(0,0,w,h);
-        if (obszarLabel!=null) {
-            obszarLabel.setIcon(new ImageIcon(BIzmienianyObszarRob));
-            obszarLabel.repaint();
+                if (obszar!=null) {
+                    obszar.invalidate();
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
-        if (obszar!=null) {
-            obszar.invalidate();
-        }
     }
 
     private class KolorML implements ActionListener {
@@ -353,7 +372,7 @@ public class RysowanieClient extends JFrame
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
-            byte[] post;
+            //byte[] post;
             post = rys.rysujrmi(wspolrzedna, kolor, rozmiarRysowaniaTryb.getValue() ,cap_round, join_round, miterlimit);
             //System.out.println(post.toString());
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
@@ -374,7 +393,7 @@ public class RysowanieClient extends JFrame
             if(tresc!=null){
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob, "jpg", pre);
-            byte[] post;
+            //byte[] post;
             post = rys.piszrmi(tresc, wspolrzedna, kolor, cap_round, join_round, miterlimit);
 
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
@@ -405,7 +424,7 @@ public class RysowanieClient extends JFrame
             rys = (Rysowanie)registry.lookup("RDraw");
             ByteArrayOutputStream pre = new ByteArrayOutputStream();
             ImageIO.write(BIzmienianyObszarRob,"jpg",pre);
-            byte[] post;
+            //byte[] post;
             post = rys.wyczyscrmi();
             ByteArrayInputStream postb = new ByteArrayInputStream(post);
             this.BIzmienianyObszarRob = ImageIO.read(postb);

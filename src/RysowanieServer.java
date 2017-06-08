@@ -27,6 +27,7 @@ interface Rysowanie extends Remote
     public byte[] rysujrmi(Point p, Color c, Object rozmiarZSpinera, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] piszrmi(String s, Point p, Color c, int capRound, int joinRound, float miterLimit) throws RemoteException;
     public byte[] wyczyscrmi() throws RemoteException;
+    public byte[] odczytajrmi(JFileChooser jFileChooser) throws RemoteException;
 }
 class RysowanieI extends UnicastRemoteObject implements Rysowanie
 {
@@ -34,6 +35,7 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
     private Map<RenderingHints.Key, Object> hm;
     private RenderingHints rh;
 
+    private JPanel obszarJP;
 
     public RysowanieI() throws RemoteException
     {
@@ -44,10 +46,14 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         hm.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         rh = new RenderingHints(hm);
         common = new BufferedImage(1300,650,BufferedImage.TYPE_INT_ARGB);
+
+        obszarJP = new JPanel();
+
         Graphics2D constr = common.createGraphics();
         constr.setColor(Color.WHITE);
         constr.fillRect(0,0,common.getWidth(),common.getHeight());
         constr.setRenderingHints(rh);
+
 
     }
     public byte[] setrmi()
@@ -120,6 +126,26 @@ class RysowanieI extends UnicastRemoteObject implements Rysowanie
         ByteArrayOutputStream bit = new ByteArrayOutputStream();
         try {
             ImageIO.write(common,"jpg",bit);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bit.toByteArray();
+    }
+
+
+
+    public byte[] odczytajrmi(JFileChooser jFileChooser) throws RemoteException
+    {
+        ByteArrayOutputStream bit = new ByteArrayOutputStream();
+        try {
+            BufferedImage BIzmieniany = ImageIO.read(jFileChooser.getSelectedFile());
+            Graphics2D g = BIzmieniany.createGraphics();
+            g.setRenderingHints(rh);
+            g.drawImage(BIzmieniany, 0, 0, obszarJP);
+            g.dispose();
+
+            ImageIO.write(BIzmieniany,"jpg",bit);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="333f6908-2f0c-4a1b-8786-e611f86e26d5" name="Default" comment="">
+    <list default="true" id="333f6908-2f0c-4a1b-8786-e611f86e26d5" name="Default" comment="Małe zmiany">
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$ObszarML.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/Rysowanie.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/Rysowanie.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$1.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$1.class" />
@@ -31,11 +31,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RysowanieServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RysowanieServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+            <state relative-caret-position="168">
+              <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,20 +43,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RysowanieClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RysowanieClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="120" column="11" lean-forward="true" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
+            <state relative-caret-position="178">
+              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2480#2507#0" expanded="true" />
-                <element signature="e#3627#3805#0" expanded="true" />
-                <element signature="e#3804#3805#0" expanded="true" />
-                <element signature="e#4143#4956#0" expanded="true" />
-                <element signature="e#4955#4956#0" expanded="true" />
-                <element signature="e#4998#5753#0" expanded="true" />
-                <element signature="e#5752#5753#0" expanded="true" />
+                <element signature="e#4299#5704#0" expanded="true" />
+                <element signature="e#5703#5704#0" expanded="true" />
+                <element signature="e#5746#5899#0" expanded="true" />
+                <element signature="e#5898#5899#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,13 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hei</find>
-      <find>bi</find>
-      <find>server</find>
-      <find>comm</find>
-      <find>run()</find>
-      <find>setIco</find>
-      <find>ImageIco</find>
       <find>RysowanieI</find>
       <find>ustaw</find>
       <find>kolo</find>
@@ -90,7 +80,6 @@
       <find>ubij</find>
       <find>nrP</find>
       <find>nrPo</find>
-      <find>rysowanie</find>
       <find>&quot;Pisz</find>
       <find>1222</find>
       <find>1099</find>
@@ -104,6 +93,14 @@
       <find>ustawObszar</find>
       <find>ImageIO.</find>
       <find>zapis</find>
+      <find>byte[]</find>
+      <find>post</find>
+      <find>RGB</find>
+      <find>extension</find>
+      <find>rysowanie</find>
+      <find>odczytaj</find>
+      <find>wczyt</find>
+      <find>wczytywanie</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,6 +119,7 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/RysowanieServer.java" />
         <option value="$PROJECT_DIR$/src/RysowanieClient.java" />
+        <option value="$PROJECT_DIR$/RysowaniePSR.iml" />
       </list>
     </option>
   </component>
@@ -152,7 +150,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -181,17 +178,21 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="E:/Bazgroly" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -504,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496755904013</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Aktualizacja zapis">
+      <created>1496789839193</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1496789839193</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -517,25 +525,25 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32136753" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31965813" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32136753" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2549168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1603631" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -557,11 +565,12 @@
     <MESSAGE value="Dodanie kolorów, uporządkowaie kodu" />
     <MESSAGE value="Dodanie opcji pisania" />
     <MESSAGE value="Zapis do pliku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zapis do pliku" />
+    <MESSAGE value="Aktualizacja zapis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aktualizacja zapis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -570,11 +579,35 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Rysowanie.java" />
     <entry file="file://$PROJECT_DIR$/src/RysowanieImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -594,13 +627,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -610,34 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -646,16 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Rysowanie.java" />
-    <entry file="file://$PROJECT_DIR$/src/RysowanieImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -683,13 +675,10 @@
           <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -708,7 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -718,13 +706,10 @@
           <caret line="223" column="25" lean-forward="false" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -745,13 +730,10 @@
           <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -760,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,13 +768,10 @@
           <caret line="134" column="122" lean-forward="false" selection-start-line="134" selection-start-column="120" selection-end-line="134" selection-end-column="122" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -814,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,13 +800,10 @@
           <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -851,13 +824,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -867,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,13 +856,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,7 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,13 +888,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -939,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,13 +920,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -975,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,7 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,29 +957,34 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
+    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+        <state relative-caret-position="178">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4299#5704#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#5746#5899#0" expanded="true" />
+            <element signature="e#5898#5899#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
+    <entry file="file://$PROJECT_DIR$/RysowaniePSR.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="120" column="11" lean-forward="true" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
+        <state relative-caret-position="136">
+          <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2507#0" expanded="true" />
-            <element signature="e#3627#3805#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#4143#4956#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#4998#5753#0" expanded="true" />
-            <element signature="e#5752#5753#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1057,6 +1018,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>jsoup-1.10.21</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1105,6 +1067,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>apache-lang:commons-lang:2.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
