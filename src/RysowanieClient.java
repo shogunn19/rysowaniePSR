@@ -15,10 +15,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.*;
 import java.awt.*;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 //import org.apache.commons.lang2.ArrayUtils;
 
 /**
@@ -36,8 +32,8 @@ public class RysowanieClient extends JFrame
     private JRadioButton rysuj, pisz;
     private JSpinner rozmiarRysowania;
     private SpinnerNumberModel rozmiarRysowaniaTryb;
-    private JFileChooser saver;
-    private JFileChooser reader;
+    private JFileChooser zapisOknoDialog;
+    private JFileChooser odczytOknoDialog;
     //private JScrollPane obszarScroll;
 
 
@@ -52,8 +48,8 @@ public class RysowanieClient extends JFrame
     private Color kolor;
     private int nrPortu;
 
-    private Point zaznaczeniePunktPoczatkowy;
-    private Rectangle zaznaczenie;
+    //private Point zaznaczeniePunktPoczatkowy;
+
     public Stroke obrys = new BasicStroke(7,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f);
     //private Obryss obrys = new Obryss(3,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,1.7f);
 
@@ -93,8 +89,8 @@ public class RysowanieClient extends JFrame
         obszar.add(obszarLabel);
         obszarLabel.addMouseMotionListener(new ObszarMML());
         obszarLabel.addMouseListener(new ObszarMA());
-        saver = new JFileChooser();
-        reader = new JFileChooser();
+        zapisOknoDialog = new JFileChooser();
+        odczytOknoDialog = new JFileChooser();
 
 
 
@@ -116,9 +112,9 @@ public class RysowanieClient extends JFrame
             {
                 BufferedImage conversion = new BufferedImage(BIzmienianyObszarRob.getWidth(),BIzmienianyObszarRob.getHeight(),BufferedImage.TYPE_INT_RGB);
                 conversion.createGraphics().drawImage(BIzmienianyObszarRob,0,0, Color.WHITE, null);
-                saver.setFileFilter(new FileNameExtensionFilter("Pliki graficzne","jpg","jpeg","gif","png"));
-                if(saver.showSaveDialog(zapis)==JFileChooser.APPROVE_OPTION){
-                    File out = saver.getSelectedFile();
+                zapisOknoDialog.setFileFilter(new FileNameExtensionFilter("Pliki graficzne","jpg","jpeg","gif","png"));
+                if(zapisOknoDialog.showSaveDialog(zapis)==JFileChooser.APPROVE_OPTION){
+                    File out = zapisOknoDialog.getSelectedFile();
                 try {
                     ImageIO.write(conversion,"jpg",out);
                 } catch (IOException e1) {
@@ -133,12 +129,12 @@ public class RysowanieClient extends JFrame
         wczytywanie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(reader.showOpenDialog(wczytywanie)==JFileChooser.APPROVE_OPTION)
+                if(odczytOknoDialog.showOpenDialog(wczytywanie)==JFileChooser.APPROVE_OPTION)
                 {
                     try {
                     registry = LocateRegistry.getRegistry(nrPortu);
                     rys = (Rysowanie) registry.lookup("RDraw");
-                    File in = reader.getSelectedFile();
+                    File in = odczytOknoDialog.getSelectedFile();
                     BufferedImage inp = ImageIO.read(in);
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     ImageIO.write(inp,"jpg",baos);
@@ -168,7 +164,7 @@ public class RysowanieClient extends JFrame
         kolorBT.setIcon(new ImageIcon(probkaKoloru));
         kolor(kolor);
 
-        rozmiarRysowaniaTryb = new SpinnerNumberModel(7,1,40,1);
+        rozmiarRysowaniaTryb = new SpinnerNumberModel(7,1,70,1);
         rozmiarRysowania = new JSpinner(rozmiarRysowaniaTryb);
         RozmiarRysCL rozmiarObsluga = new RozmiarRysCL();
         rozmiarRysowania.addChangeListener(rozmiarObsluga);
