@@ -212,7 +212,7 @@ public class RysowanieServer extends JFrame
 
                 }
                 else {
-                    System.out.println(nrPortu);
+                    //System.out.println(nrPortu);
                     serwer = new Server();
                     serwer.start();
 
@@ -256,14 +256,30 @@ public class RysowanieServer extends JFrame
 
             public void run()
             {
-                try
-                {
-                    System.out.println("Uruchamiam...");
+                try {
+                    //System.out.println("Uruchamiam...");
                     registry = LocateRegistry.createRegistry(nrPortu);
+                    wyswietlKomunikat("Rejestracja na porcie: " + portPole.getText());
+                }catch (Exception e){
+                 wyswietlKomunikat("Nie powiodło sie utworzenie rejestru na tym porcie. \n Spróbuj ponownie lub skorzystaj z innego.");
+                }
+                if (registry == null) {
+                    try {
+                        registry = LocateRegistry.getRegistry();
+                    } catch (Exception e) {
+                        wyswietlKomunikat("Brak uruchomionego rejestru.");
+                    }
+                }
+
+                try {
                     RysowanieI remote = new RysowanieI();
                     registry.bind("RDraw",remote);
-                    System.out.println("Uruchomiony");
-                }catch (Exception e){e.printStackTrace();}
+                    //System.out.println("Uruchomiony");
+                    wyswietlKomunikat("Serwer zarejestrowany i uruchomiony. Możesz uruchamiać klientów.");
+                }catch (Exception e){
+                    wyswietlKomunikat("Nie udało się uruchomić serwera.");
+                }
+
             }
 
     }
