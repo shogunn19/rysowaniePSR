@@ -19,6 +19,8 @@ public class RysowanieServer extends JFrame
     private JLabel portNapis;
     private int nrPortu = 1099;
     private JButton uruchom, zatrzymaj;
+    //private JButton klient;
+    private BTGradient klient;
     private JTextArea komunikaty;
     RysowanieServer referencjaSerwera;
 
@@ -37,7 +39,9 @@ public class RysowanieServer extends JFrame
         portPole = new JTextField(new Integer(nrPortu).toString(), 8);
         uruchom = new JButton("Uruchom");
         zatrzymaj = new JButton("Zatrzymaj");
+        klient = new BTGradient("Klient");
         zatrzymaj.setEnabled(false);
+        klient.setEnabled(false);
 
         komunikaty = new JTextArea();
         komunikaty.setLineWrap(true);
@@ -46,11 +50,13 @@ public class RysowanieServer extends JFrame
         Zdarzenia obsluga = new Zdarzenia();
         uruchom.addActionListener(obsluga);
         zatrzymaj.addActionListener(obsluga);
+        klient.addActionListener(obsluga);
 
         kontener.add(portNapis);
         kontener.add(portPole);
         kontener.add(uruchom);
         kontener.add(zatrzymaj);
+        kontener.add(klient);
 
         add(kontener, BorderLayout.NORTH);
         add(new JScrollPane(komunikaty), BorderLayout.CENTER);
@@ -80,6 +86,7 @@ public class RysowanieServer extends JFrame
                     uruchom.setEnabled(false);
                     zatrzymaj.setEnabled(true);
                     portPole.setEnabled(false);
+                    klient.setEnabled(true);
                     repaint();
                 }
             }
@@ -90,7 +97,19 @@ public class RysowanieServer extends JFrame
                 zatrzymaj.setEnabled(false);
                 uruchom.setEnabled(true);
                 portPole.setEnabled(true);
+                klient.setEnabled(false);
                 repaint();
+            }
+            if (e.getActionCommand().equals("Klient"))
+            {
+                //try {
+                new RysowanieClient(Integer.parseInt(portPole.getText()));
+                //klient.setEnabled(false);
+                //Thread.sleep(2000);
+                //klient.setEnabled(true);
+                //} catch (InterruptedException e1) {
+                //   e1.printStackTrace();
+                //}
             }
 
         }
@@ -103,7 +122,8 @@ public class RysowanieServer extends JFrame
         public Registry registry;
         public void ubijSerwer()
         {
-            System.out.println("Zatrzymuje...");
+            //System.out.println("Zatrzymuje...");
+            wyswietlKomunikat("Zatrzymanie serwera");
             try {
                 registry.unbind("RDraw");
             } catch (RemoteException e) {
@@ -142,6 +162,34 @@ public class RysowanieServer extends JFrame
                 }
 
             }
+    }
+
+    private static final class BTGradient extends JButton{
+
+        private BTGradient(String tytul){
+            super(tytul);
+            setContentAreaFilled(false);
+        }
+
+        protected void paintComponent(Graphics g){
+            Graphics2D graphics2D = (Graphics2D) g.create();
+            graphics2D.setPaint(new GradientPaint(
+                    new Point(0, 0),
+                    getBackground(),
+                    new Point(0, getHeight()/3),
+                    Color.WHITE));
+
+            graphics2D.fillRect(0, 0, getWidth(), getHeight()/3);
+            graphics2D.setPaint(new GradientPaint(
+                    new Point(0, getHeight()/3),
+                    Color.WHITE,
+                    new Point(0, getHeight()),
+                    Color.LIGHT_GRAY));
+            graphics2D.fillRect(0, getHeight()/3, getWidth(), getHeight());
+            graphics2D.dispose();
+
+            super.paintComponent(g);
+        }
     }
 
     public void wyswietlKomunikat(String tekst)

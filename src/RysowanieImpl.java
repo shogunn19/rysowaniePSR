@@ -72,7 +72,7 @@ class RysowanieImpl extends UnicastRemoteObject implements Rysowanie
             e.printStackTrace();
         }
 
-        System.out.println("DRAWED");
+        //System.out.println("DRAWED");
         return bit.toByteArray();
     }
 

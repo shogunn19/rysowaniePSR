@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RysowaniePSR:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="333f6908-2f0c-4a1b-8786-e611f86e26d5" name="Default" comment="">
+    <list default="true" id="333f6908-2f0c-4a1b-8786-e611f86e26d5" name="Default" comment="Dodanie do dokumentacji diagramu UML i diagramów prezentujących zawartość klas">
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieI.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PSRrysowanieDokumentacja.docx" afterPath="$PROJECT_DIR$/PSRrysowanieDokumentacja.docx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/Rysowanie.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/Rysowanie.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$1.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$KolorML.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$KolorML.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$ObszarMML.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$ObszarMML.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$RozmiarRysCL.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient$RozmiarRysCL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieClient.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieImpl.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$Server.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$Server.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$Zdarzenia.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer$Zdarzenia.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer.class" afterPath="$PROJECT_DIR$/out/production/RysowaniePSR/RysowanieServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RysowanieClient.java" afterPath="$PROJECT_DIR$/src/RysowanieClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RysowanieImpl.java" afterPath="$PROJECT_DIR$/src/RysowanieImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RysowanieServer.java" afterPath="$PROJECT_DIR$/src/RysowanieServer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/RysowanieImpl.java" afterPath="$PROJECT_DIR$/src/RysowanieImp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +41,8 @@
       <file leaf-file-name="RysowanieServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="203">
+              <caret line="155" column="33" lean-forward="false" selection-start-line="155" selection-start-column="33" selection-end-line="155" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,8 +53,8 @@
       <file leaf-file-name="RysowanieImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RysowanieImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="-323">
+              <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,8 +65,8 @@
       <file leaf-file-name="Rysowanie.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Rysowanie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,17 +77,12 @@
       <file leaf-file-name="RysowanieClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3621">
-              <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+            <state relative-caret-position="5745">
+              <caret line="359" column="5" lean-forward="true" selection-start-line="359" selection-start-column="5" selection-end-line="359" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2701#2728#0" expanded="true" />
-                <element signature="e#3922#4100#0" expanded="true" />
-                <element signature="e#4099#4100#0" expanded="true" />
-                <element signature="e#4228#5047#0" expanded="true" />
-                <element signature="e#5046#5047#0" expanded="true" />
-                <element signature="e#5299#6349#0" expanded="true" />
-                <element signature="e#6348#6349#0" expanded="true" />
+                <element signature="e#16581#16582#0" expanded="true" />
+                <element signature="e#16643#16644#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,13 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pisanie</find>
-      <find>RDraw</find>
-      <find>setrmi</find>
-      <find>ustawOb</find>
-      <find>rysujrmi</find>
-      <find>ustawObszar</find>
-      <find>ImageIO.</find>
       <find>zapis</find>
       <find>byte[]</find>
       <find>post</find>
@@ -122,6 +123,13 @@
       <find>ico</find>
       <find>run</find>
       <find>portPole</find>
+      <find>wyczysc</find>
+      <find>Rysowa</find>
+      <find>System.out.println</find>
+      <find>DRAWED</find>
+      <find>System.out.pr</find>
+      <find>obrys</find>
+      <find>referencjaSerwera</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,11 +150,11 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/RysowaniePSR.iml" />
-        <option value="$PROJECT_DIR$/src/RysowanieClient.java" />
-        <option value="$PROJECT_DIR$/src/RysowanieServer.java" />
-        <option value="$PROJECT_DIR$/src/RysowanieImpl.java" />
         <option value="$PROJECT_DIR$/src/Rysowanie.java" />
         <option value="$PROJECT_DIR$/src/RysowanieImp.java" />
+        <option value="$PROJECT_DIR$/src/RysowanieClient.java" />
+        <option value="$PROJECT_DIR$/src/RysowanieImpl.java" />
+        <option value="$PROJECT_DIR$/src/RysowanieServer.java" />
       </list>
     </option>
   </component>
@@ -177,8 +185,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,12 +215,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="E:/RMICzat" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -567,7 +575,21 @@
       <option name="project" value="LOCAL" />
       <updated>1497001076228</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Podzielenie interfejsów i klas na oddzielne pliki">
+      <created>1497011098302</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1497011098302</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Dodanie do dokumentacji diagramu UML i diagramów prezentujących zawartość klas">
+      <created>1497020013840</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1497020013840</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -586,19 +608,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31965813" sideWeight="0.5263543" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31965813" sideWeight="0.4736457" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31965813" sideWeight="0.4736457" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19213313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -628,7 +650,9 @@
     <MESSAGE value="Naprawienie błędu z dodawaniem z pliku" />
     <MESSAGE value="Dodanie ikony serwera i klienta" />
     <MESSAGE value="Komunikaty na serwerze" />
-    <option name="LAST_COMMIT_MESSAGE" value="Komunikaty na serwerze" />
+    <MESSAGE value="Podzielenie interfejsów i klas na oddzielne pliki" />
+    <MESSAGE value="Dodanie do dokumentacji diagramu UML i diagramów prezentujących zawartość klas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie do dokumentacji diagramu UML i diagramów prezentujących zawartość klas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,33 +665,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="79" column="9" lean-forward="false" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Rysowanie.java" />
     <entry file="file://$PROJECT_DIR$/src/RysowanieImp.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -708,13 +705,8 @@
           <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -742,13 +734,8 @@
           <caret line="223" column="25" lean-forward="false" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,13 +756,8 @@
           <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -810,13 +792,8 @@
           <caret line="134" column="122" lean-forward="false" selection-start-line="134" selection-start-column="120" selection-end-line="134" selection-end-column="122" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -845,13 +822,8 @@
           <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -872,13 +844,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -907,13 +874,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -942,13 +904,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -977,13 +934,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -998,11 +950,6 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/jre/lib/rt.jar!/sun/java2d/SunGraphics2D.class" />
-    <entry file="file://$PROJECT_DIR$/src/save.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RysowaniePSR.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1010,7 +957,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/RysowanieImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rysowanieKlient.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/rysowanieServer.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/save.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/open.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/erase.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1020,50 +995,32 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rysowanieKlient.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/Rysowanie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RysowanieClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3621">
-          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+        <state relative-caret-position="5745">
+          <caret line="359" column="5" lean-forward="true" selection-start-line="359" selection-start-column="5" selection-end-line="359" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2701#2728#0" expanded="true" />
-            <element signature="e#3922#4100#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4228#5047#0" expanded="true" />
-            <element signature="e#5046#5047#0" expanded="true" />
-            <element signature="e#5299#6349#0" expanded="true" />
-            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#16581#16582#0" expanded="true" />
+            <element signature="e#16643#16644#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Rysowanie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RysowanieImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RysowanieServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="203">
+          <caret line="155" column="33" lean-forward="false" selection-start-line="155" selection-start-column="33" selection-end-line="155" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1072,8 +1029,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RysowanieImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="-323">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1086,10 +1043,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>RysowaniePSR:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1138,7 +1097,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -217,7 +217,7 @@ public class RysowanieClient extends JFrame
         }catch (Exception e){e.printStackTrace();}
         this.setMinimumSize(this.getSize());
 
-
+        pack();
         setVisible(true);
     }
 
